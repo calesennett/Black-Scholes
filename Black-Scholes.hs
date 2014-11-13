@@ -45,7 +45,8 @@ bsPut
 {- Cumulative Standard Normal Distribution
  - Credit to: Karl M. Syring
  -}
-normcdf x
+normcdf
+    x
     | x < 0     = 1 - w
     | otherwise = w
         where
@@ -55,6 +56,10 @@ normcdf x
             poly = horner coeff
             coeff = [0.0,0.31938153,-0.356563782,1.781477937,-1.821255978,1.330274429]
 
-horner coeff base = foldr1 multAdd coeff
+horner
+    coeff
+    base = foldr1 multAdd coeff
     where
-        multAdd x y = y * base + x
+        multAdd
+            x
+            y = y * base + x
