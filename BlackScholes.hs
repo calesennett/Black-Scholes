@@ -1,4 +1,10 @@
-module BlackScholes where
+module BlackScholes
+    ( Option(..)
+    , blackScholes
+    , bsCall
+    , bsPut
+    , normcdf
+    ) where
 
 import Data.Char
 
@@ -39,7 +45,7 @@ bsPut
 bsPut
     o
     d1
-    d2 = strike o * exp (-(rate o) * time o) * (normcdf (-d2)) - (normcdf (-d2))
+    d2 = strike o * exp (-(rate o) * time o) * (normcdf (-d2)) - stock o * (normcdf (-d1))
 
 
 {- Cumulative Standard Normal Distribution
