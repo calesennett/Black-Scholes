@@ -65,5 +65,5 @@ horner
     coeff
     base = foldr1 multAdd coeff
     where multAdd
-            x
-            y = y * base + x
+              x
+              y = y * base + x
