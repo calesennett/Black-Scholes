@@ -11,7 +11,7 @@ import Data.Char
 data Option = Option { optionType :: String
                      , stock      :: Double
                      , strike     :: Double
-                     , rate       :: Double
+                     , riskFree   :: Double
                      , time       :: Double
                      , vol        :: Double
                      }
@@ -23,7 +23,7 @@ blackScholes
     option
     | (map toLower $ optionType o) == "call" = bsCall option d1 d2
     | otherwise                              = bsPut  option d1 d2
-        where   d1 = ((log (stock o / strike o)) + ((rate o + (vol o)^2 / 2.0) * (time o))) / ((vol o) * sqrt (time o))
+        where   d1 = ((log (stock o / strike o)) + ((riskFree o + (vol o)^2 / 2.0) * (time o))) / ((vol o) * sqrt (time o))
                 d2 = d1 - (vol o) * sqrt (time o)
                 o  = option
 
@@ -35,7 +35,7 @@ bsCall
 bsCall
     o
     d1
-    d2 = stock o * (normcdf d1) - strike o * exp (-(rate o) * time o) * (normcdf d2)
+    d2 = stock o * (normcdf d1) - strike o * exp (-(riskFree o) * time o) * (normcdf d2)
 
 bsPut
     :: Option
@@ -45,7 +45,7 @@ bsPut
 bsPut
     o
     d1
-    d2 = strike o * exp (-(rate o) * time o) * (normcdf (-d2)) - stock o * (normcdf (-d1))
+    d2 = strike o * exp (-(riskFree o) * time o) * (normcdf (-d2)) - stock o * (normcdf (-d1))
 
 
 {- Cumulative Standard Normal Distribution
