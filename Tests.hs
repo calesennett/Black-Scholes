@@ -104,6 +104,8 @@ within
 within
     tolerance
     expected
-    actual = if ((expected - expected * tolerance) <= actual) && (actual <= (expected + expected * tolerance))
+    actual = if lower <= actual && actual <= upper
              then True
              else False
+             where lower = (expected - expected * tolerance)
+                   upper = (expected + expected * tolerance)
