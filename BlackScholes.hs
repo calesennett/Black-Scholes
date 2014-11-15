@@ -48,8 +48,9 @@ bsPut
     d2 = strike o * exp (-(riskFree o) * time o) * (normcdf (-d2)) - stock o * (normcdf (-d1))
 
 
-{- Cumulative Standard Normal Distribution
- - Credit to: Karl M. Syring
+{- | Cumulative Standard Normal Distribution
+ - | Credit to: Karl M. Syring
+ - | Url: http://www.espenhaug.com/black_scholes.html
  -}
 normcdf
     x
