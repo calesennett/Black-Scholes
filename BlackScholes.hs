@@ -16,6 +16,16 @@ data Option = Option { optionType :: String
                      , vol        :: Double
                      }
 
+main =  let value = blackScholes option
+            option = Option { optionType="call"
+                            , stock=31.25
+                            , strike=22.75
+                            , riskFree=0
+                            , time=1.0
+                            , vol=0.5
+                            }
+            in print value
+
 blackScholes
     :: Option
     -> Double
