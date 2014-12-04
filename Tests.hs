@@ -1,4 +1,4 @@
-module Test.BlackScholes where
+module Tests where
 
 import qualified BlackScholes as BS
 import           Test.Hspec

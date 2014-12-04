@@ -4,6 +4,7 @@ module BlackScholes
     , bsCall
     , bsPut
     , normcdf
+    , main
     ) where
 
 import Data.Char
@@ -20,7 +21,7 @@ main =  let value = blackScholes option
             option = Option { optionType="call"
                             , stock=31.25
                             , strike=22.75
-                            , riskFree=0
+                            , riskFree=0.07
                             , time=1.0
                             , vol=0.5
                             }
